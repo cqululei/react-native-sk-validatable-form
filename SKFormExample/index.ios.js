@@ -6,7 +6,9 @@ import React, {
 } from 'react-native';
 
 var {SKNavigator} = require('react-native-sk-navigator');
-var { WidgetMixin, Form, Widget, formStyle } = require('react-native-sk-validatable-form');
+var { WidgetMixin, Form, Widget, Message } = require('react-native-sk-validatable-form');
+
+// Message.setLanguage('cn');
 
 var Home = React.createClass({
   submit(){
@@ -45,28 +47,52 @@ var Home = React.createClass({
           placeholderTextColor='#B9B9B9'
           placeholder='Please input title(limit 50 character)'
         />
+        {/* married 已婚 */}
+        <Widget.SwitchInline
+          name='married'
+          title='married'
+          defaultValue={false}
+          onTintColor='#F59E21'
+          validations='isRequired'
+        />
         {/* sex 性别 */}
-        <Widget.SexLink
-          name='sex'
-          title='sex'
+        <Widget.SexLinkInline
+          name='sex1'
+          title='sex1'
           validations='isRequired'
           placeholder='Please select sex'
           />
+        {/* sex 性别 */}
+        <Widget.PickerIOSLinkInline
+          name='sex2'
+          title='sex2'
+          validations='isRequired'
+          placeholder='Please select sex'
+          items={{'female': 'Female/Woman', 'male': 'Male/Man'}}
+          />
+        {/* sex 性别 */}
+        <Widget.PickerLinkInline
+          name='sex3'
+          title='sex3'
+          validations='isRequired'
+          placeholder='Please select sex'
+          items={{'female': 'Female/Woman', 'male': 'Male/Man'}}
+          />
         {/* date 日期 */}
-        <Widget.DateLink
+        <Widget.DateIOSLinkInline
           name='date'
           title='date'
           validations='isRequired'
           placeholder='please select date'
           />
         {/* place 地点 */}
-        <Widget.MapLink
+        <Widget.MapLinkInline
           name='place'
           title='place'
           validations='isRequired'
           placeholder='please select place'
           />
-        {/* content */}
+        {/* content 内容 */}
         <Widget.TextInput
           name='content'
           title='content'
@@ -106,12 +132,7 @@ var styles = {
     flex: 1,
     backgroundColor: '#FFF',
   },
-  value: {
-    flex: 1,
-    fontSize: 15,
-  },
   textInput:{
-    // padding: 6,
     fontSize: 15,
   },
   titleInput: {
@@ -122,7 +143,6 @@ var styles = {
     marginLeft: 10,
     height: 160,
     color: '#5E5D5D',
-    // backgroundColor: 'green',
   },
 };
 

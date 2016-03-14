@@ -6,7 +6,7 @@ var {
 var LinkMixin = require('./LinkMixin');
 
 // 日期选择器
-var DateSelector = React.createClass({
+var DateSelectorIOS = React.createClass({
   getInitialState() {
     return {
       date: new Date(),
@@ -25,12 +25,12 @@ var DateSelector = React.createClass({
 });
 
 // 日期选择器的链接
-var DateLink = React.createClass({
+var DateIOSLink = React.createClass({
   mixins: [LinkMixin],
   onPress(){
     this.props.navigator.push({
       title: this.props.title || 'Select Date',
-      component: DateSelector,
+      component: DateSelectorIOS,
       passProps: {
         ref: (ref) => this.dateSelector = ref,
       },
@@ -46,4 +46,4 @@ var DateLink = React.createClass({
   }
 });
 
-module.exports = DateLink;
+module.exports = DateIOSLink;

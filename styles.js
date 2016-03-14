@@ -21,4 +21,7 @@ module.exports = StyleSheet.create({
     color: '#000',
     textAlign: 'center'
   },
+  inlineIcon: {
+    marginRight: 10
+  }
 });

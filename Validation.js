@@ -60,7 +60,7 @@ class Validation{
    * 翻译参数: 将其他字段值替换到参数中
    * @param args 参数
    * @param values 表单所有字段的值
-   * @return
+   * @return 翻译后的参数
    */
   translateArgs(args, values){
     // console.log(args);
@@ -76,8 +76,9 @@ class Validation{
 
   /**
    * 校验规则
-   *
-   *
+   * @param args 参数
+   * @param values 表单所有字段的值
+   * @return {isValid, rule, args}
    */
   check(value, values){
     for (var rule in this.rules) {

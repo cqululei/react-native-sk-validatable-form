@@ -19,9 +19,11 @@ var WidgetMixin = {
   },
 
   getInitialState: function() {
+    var {defaultValue} = this.props;
+    var value = (typeof(defaultValue) === 'undefined') ? '' : defaultValue; // 字段值：默认赋值'', 因为多数字段都是string, 并且有些校验方法会检查参数string类型
     return {
-      value: this.props.defaultValue || '', // 字段值，默认赋值'', 因为多数字段都是string, 并且有些校验方法会检查参数string类型
-      errorMessage: null, // 校验错误的信息
+      value, // 字段值
+      errorMessage: undefined, // 校验错误的信息
     };
   },
 
@@ -67,7 +69,7 @@ var WidgetMixin = {
       var titles = this.props.form ? this.props.form.getTitles() : {};
       titles['TITLE'] = this.props.title; // 当前字段的标题直接为TITLE
       errorMessage = Message.translate(rule, args, titles);
-      console.log(errorMessage);
+      // console.log(errorMessage);
     }
     this.setState({errorMessage});
 

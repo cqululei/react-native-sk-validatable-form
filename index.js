@@ -32,6 +32,11 @@ class FormExample extends React.Component {
 'use strict';
 
 var React = require('react-native');
+var {
+  TextInput,
+  Switch,
+} = React;
+
 var Form = require('./Form');
 var WidgetMixin = require('./WidgetMixin');
 var WidgetClassFactory = require('./WidgetClassFactory');
@@ -40,11 +45,17 @@ var Message = require('./Message');
 // var PicsCart = require('react-native-sk-picscart');
 var styles = require('./styles');
 var Widget = {
-  TextInput : WidgetClassFactory.create(React.TextInput, 'onChangeText', 'value'),
-  TextInputInline : WidgetClassFactory.createInline(React.TextInput, 'onChangeText', 'value'),
-  SexLink : WidgetClassFactory.createInline(require('./Link/SexLink'), 'onChange', 'value'),
-  DateLink : WidgetClassFactory.createInline(require('./Link/DateLink'), 'onChange', 'value'),
-  MapLink : WidgetClassFactory.createInline(require('./Link/MapLink'), 'onChange', 'value'),
+  TextInput : WidgetClassFactory.create(TextInput, 'onChangeText', 'value'),
+  Switch : WidgetClassFactory.create(Switch, 'onValueChange', 'value'),
+
+  TextInputInline : WidgetClassFactory.createInline(TextInput, 'onChangeText', 'value'),
+  SwitchInline : WidgetClassFactory.createInline(Switch, 'onValueChange', 'value'),
+  SexLinkInline : WidgetClassFactory.createInline(require('./Link/SexLink'), 'onChange', 'value'),
+  DateIOSLinkInline : WidgetClassFactory.createInline(require('./Link/DateIOSLink'), 'onChange', 'value'),
+  PickerIOSLinkInline : WidgetClassFactory.createInline(require('./Link/PickerIOSLink'), 'onChange', 'value'),
+  PickerLinkInline : WidgetClassFactory.createInline(require('./Link/PickerLink'), 'onChange', 'value'),
+  MapLinkInline : WidgetClassFactory.createInline(require('./Link/MapLink'), 'onChange', 'value'),
+
   // PicsCart : WidgetClassFactory.create(PicsCart, 'onChange', 'pics'),
 }
 

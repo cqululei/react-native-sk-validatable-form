@@ -1,9 +1,17 @@
 var React = require('react-native');
 var {
   Text,
+  TextInput,
   TouchableHighlight,
   StyleSheet,
 } = React;
+
+// fix bug: cann't require dismissKeyboard, so I copy it
+// var dismissKeyboard = require('dismissKeyboard');
+function dismissKeyboard() {
+  TextInput.State.blurTextInput(TextInput.State.currentlyFocusedField());
+}
+
 
 /**
  * 链接的mixin
@@ -37,7 +45,10 @@ var LinkMixin = {
       valueStyle = {color:'#ABABAB'};
     }
     return (
-      <TouchableHighlight style={{flex: 1}} underlayColor='#c7c7cc' onPress={this.onPress}>
+      <TouchableHighlight
+        style={{flex: 1}}
+        underlayColor='#c7c7cc'
+        onPress={this.onPress}>
         <Text style={[styles.value, valueStyle]}>{value}</Text>
       </TouchableHighlight>
     )

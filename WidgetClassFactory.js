@@ -4,6 +4,7 @@ var React = require('react-native');
 var {
   View,
   Text,
+  Image,
 } = React;
 
 var WidgetMixin = require('./WidgetMixin'),
@@ -90,13 +91,19 @@ var WidgetClassFactory = {
       render(){
         // 装饰属性
         var props = decorateProps(Component, getter, setter, this);
+        // 是否合法
+        var icon = this.state.errorMessage === null ? (<Image source={require('./img/valid.png')} style={styles.inlineIcon}/>) : null;
         // 渲染
         return (
           <View style={styles.inlineBox}>
+            {/* 标题 */}
             <Text style={styles.inlineLabel}>{this.props.title}</Text>
+            {/* 组件 */}
             <Component
               {...props}
             />
+            {/* 合法图标 */}
+            {icon}
           </View>
         );
       }

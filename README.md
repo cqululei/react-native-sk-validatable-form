@@ -17,7 +17,16 @@ So I come up with this project.
 
 react-native-sk-validatable-form is a component that wraps your form fields, it’s easy to get their value, validate their value.
 
+There are some concepts you need to know
+
+1. **Form**: Component that wraps ScrollView, contains input components, validates/gets their values
+2. **Widget**: Component that wraps input components(e.g. TextInput/Switch), validates/get its value, keeps validation error. You can create a Widget class by 2 ways: 1 inherits **WidgetMixin** 2 use **WidgetClassFactory**.
+3. **Validation**: Class that parse validation rules and checks the rules.
+4. **Message**: Util that contains every rule's error message template, and translates it into real message.
+
 ##How to use it
+
+### Example
 
 1. `npm install react-native-sk-validatable-form@latest --save`
 
@@ -166,7 +175,7 @@ Any [ScrollView property](http://facebook.github.io/react-native/docs/scrollview
 
 | Method | Description | Params |
 |---|---|---|
-|**`registerInput(widget)`**|Keep a input widget. |*None*|
+|**`registerInput(widget)`**|Remember a input widget. |*None*|
 |**`unregisterInput(widget)`**|Forget a input widget. |*None*|
 |**`scrollTo(...)`**|Delegate ScrollView's method `scrollTo()`. |*None*|
 |**`scrollToFocusedInput(input)`**|Scroll to the focuse input widget. |*None*|
