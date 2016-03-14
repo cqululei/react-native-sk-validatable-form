@@ -11,18 +11,18 @@ var Validation = require('./Validation'),
     Message = require('./Message');
 
 var WidgetMixin = {
-  getInitialState: function() {
-    return {
-      value: this.props.defaultValue || '', // 字段值，默认赋值'', 因为多数字段都是string, 并且有些校验方法会检查参数string类型
-      errorMessage: null, // 校验错误的信息
-    };
-  },
-
   propTypes: {
     name: React.PropTypes.string, // 字段标识
     title: React.PropTypes.string, // 字段标题
     validateOnBlur: React.PropTypes.bool, // 当失去焦点时执行校验
     defaultValue: React.PropTypes.any, // 默认值, 用于初始化this.state.value, 有些组件需要特定类型的value(如string/array), 但是没有兼容null, 就是报错
+  },
+
+  getInitialState: function() {
+    return {
+      value: this.props.defaultValue || '', // 字段值，默认赋值'', 因为多数字段都是string, 并且有些校验方法会检查参数string类型
+      errorMessage: null, // 校验错误的信息
+    };
   },
 
   componentWillMount: function () {
@@ -39,7 +39,8 @@ var WidgetMixin = {
 
   // 设置值：注意需要绑定到组件的值变化的回调中去
   setValue(value){
-    this.setState({value}, this.validate); // 更新value后, 立即校验
+    if(typeof(value) !== 'undefined' && value !== null) // value不能是 undefined / null
+      this.setState({value}, this.validate); // 更新value后, 立即校验
   },
 
   // 获得值

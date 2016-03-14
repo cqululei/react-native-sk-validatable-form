@@ -2,20 +2,30 @@
 'use strict';
 import React, {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View,
   Alert,
-  DatePickerIOS,
-  MapView,
-  TouchableOpacity,
-  Dimensions,
 } from 'react-native';
 
 var {SKNavigator} = require('react-native-sk-navigator');
 var { WidgetMixin, Form, Widget, formStyle } = require('react-native-sk-validatable-form');
 
 var Home = React.createClass({
+  submit(){
+    var title, msg;
+    if(this.refs.form.validate()){
+      title = 'Success';
+      msg = 'validate success';
+    }else{
+      title = 'Fail';
+      msg = this.refs.form.getErrorMessages().join('\n');
+    }
+    Alert.alert(
+       title,
+       msg,
+       [
+         {text:'ok'},
+       ]
+     );
+  },
   render() {
     return (
       <Form
@@ -35,7 +45,14 @@ var Home = React.createClass({
           placeholderTextColor='#B9B9B9'
           placeholder='Please input title(limit 50 character)'
         />
-      {/* date 日期 */}
+        {/* sex 性别 */}
+        <Widget.SexLink
+          name='sex'
+          title='sex'
+          validations='isRequired'
+          placeholder='Please select sex'
+          />
+        {/* date 日期 */}
         <Widget.DateLink
           name='date'
           title='date'
@@ -48,13 +65,6 @@ var Home = React.createClass({
           title='place'
           validations='isRequired'
           placeholder='please select place'
-          />
-        {/* sex 性别 */}
-        <Widget.SexLink
-          name='sex'
-          title='sex'
-          validations='isRequired'
-          placeholder='Please select sex'
           />
         {/* content */}
         <Widget.TextInput
@@ -79,9 +89,13 @@ var SKFormExample = React.createClass({
     return (
       <SKNavigator
         initialRoute={{ // 初始路由
-           component: Home,
            title: 'Home',
-           passProps: {}
+           component: Home,
+           passProps: {
+             ref: (ref) => this.home = ref,
+           },
+           rightButtonTitle: 'submit',
+           onRightButtonPress: () => this.home.submit(),
          }}/>
     )
   }

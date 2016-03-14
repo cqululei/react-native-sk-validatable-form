@@ -42,6 +42,9 @@ var styles = require('./styles');
 var Widget = {
   TextInput : WidgetClassFactory.create(React.TextInput, 'onChangeText', 'value'),
   TextInputInline : WidgetClassFactory.createInline(React.TextInput, 'onChangeText', 'value'),
+  SexLink : WidgetClassFactory.createInline(require('./Link/SexLink'), 'onChange', 'value'),
+  DateLink : WidgetClassFactory.createInline(require('./Link/DateLink'), 'onChange', 'value'),
+  MapLink : WidgetClassFactory.createInline(require('./Link/MapLink'), 'onChange', 'value'),
   // PicsCart : WidgetClassFactory.create(PicsCart, 'onChange', 'pics'),
 }
 

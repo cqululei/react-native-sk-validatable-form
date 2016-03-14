@@ -6,8 +6,7 @@ var {
   Text,
 } = React;
 
-var merge = require('merge'),
-    WidgetMixin = require('./WidgetMixin'),
+var WidgetMixin = require('./WidgetMixin'),
     styles = require('./styles');
 /**
  工具方法, 方便实现类似的类
@@ -53,7 +52,7 @@ function decorateProps(Component, getter, setter, that){
       onFocus && onFocus()
     };
   }
-  return merge(props, other);
+  return React.addons.update(props, {$merge: other});
 }
 
 var WidgetClassFactory = {
