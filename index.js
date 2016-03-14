@@ -37,13 +37,12 @@ var WidgetMixin = require('./WidgetMixin');
 var WidgetClassFactory = require('./WidgetClassFactory');
 var Validation = require('./Validation');
 var Message = require('./Message');
-var PicsCart = require('react-native-sk-picscart');
+// var PicsCart = require('react-native-sk-picscart');
 var styles = require('./styles');
 var Widget = {
   TextInput : WidgetClassFactory.create(React.TextInput, 'onChangeText', 'value'),
   TextInputInline : WidgetClassFactory.createInline(React.TextInput, 'onChangeText', 'value'),
-  // TouchableInline: require('./Widget/TouchableInline'), // 点击直接跳转
-  PicsCart : WidgetClassFactory.create(PicsCart, 'onChange', 'pics'),
+  // PicsCart : WidgetClassFactory.create(PicsCart, 'onChange', 'pics'),
 }
 
 module.exports = {

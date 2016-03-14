@@ -1,0 +1,28 @@
+{
+  "name": "react-native-sk-validatable-form",
+  "version": "1.0.0",
+  "description": "component that wraps your form fields, it’s easy to get their value, validate their value.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shigebeyond/react-native-sk-validatable-form.git"
+  },
+  "keywords": [
+    "react-native",
+    "form",
+    "validate",
+    "validatable-form"
+  ],
+  "author": "shigebeyond",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shigebeyond/react-native-sk-validatable-form/issues"
+  },
+  "homepage": "https://github.com/shigebeyond/react-native-sk-validatable-form#readme",
+  "dependencies": {
+    "validator": "^5.1.0"
+  }
+}

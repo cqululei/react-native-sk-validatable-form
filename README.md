@@ -26,7 +26,6 @@ react-native-sk-validatable-form is a component that wraps your form fields, itâ
 ```javascript
 
 
-
 ```
 ![](https://raw.githubusercontent.com/shigebeyond/react-native-sk-validatable-form/master/demo.gif)
 
