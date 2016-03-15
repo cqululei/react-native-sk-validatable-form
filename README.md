@@ -287,7 +287,7 @@ var TextInputWidget = WidgetClassFactory.create(TextInput, 'onChangeText', 'valu
 validations='isRequired,isLength:[1,50]'
 ```
 
-`validations` contains validation rules, which is defined in [validator](https://github.com/chriso/validator.js#validators) or you can define it yourself by [Validation.addValidator(rule, func)](#validations-method).
+`validations` contains validation rules, which is defined in [validator](https://github.com/chriso/validator.js#validators) or you can define it yourself by [Validation.addValidator(rule, func)](#validations-methods).
 
 Multiple rules are split by `,`. One rule contains name and parameters which are split by `:`.
 
@@ -300,7 +300,7 @@ Validation is a class that contains validation rules, and will check the rules.
 | Method | Description | Params |
 |---|---|---|
 |**`static addValidator(rule, func)`**|Add a rule validator, which is used by [Validation rules string](#validation-rules-string) |*None*|
-|**`static parse(validations)`**|Parse [validation rules string](#widgets-uses) (into a Validation object). |*None*|
+|**`static parse(validations)`**|Parse [validation rules string](#validation-rules-string) (into a Validation object). |*None*|
 |**`check(value, values)`**|check the rules, called by [WidgetMixin.validate()](#widgets-methods) |*None*|
 
 ## Message helper
