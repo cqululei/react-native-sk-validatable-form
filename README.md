@@ -211,7 +211,7 @@ Any [ScrollView property](http://facebook.github.io/react-native/docs/scrollview
 |**`getErrorMessages()`**|Get all fields' validation error message. |*None*|
 
 
-##Widget Component(WidgetMixin)
+##Widget Component(Inherits WidgetMixin)
 
 ### Widget's properties
 
