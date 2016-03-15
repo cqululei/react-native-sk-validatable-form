@@ -312,9 +312,9 @@ Message is a helper to offer error message for a rule.
 | Method | Description | Params |
 |---|---|---|
 |**`setLanguage(language, messages = null)`**|Toggle language, only support cn(chinese) and en(english), you can add your implements by parameter `messages`. |*None*|
-|**`addMessage(rule, messageTemplate)`**|add a message for a rule. |*None*|
+|**`addMessage(rule, messageTemplate)`**|add a message template for a rule. |*None*|
 
-### Add a message
+### Add a message templdate
 
 ```javascript
 Message.addMessage('isEmail', '{TITLE} must be an email');
