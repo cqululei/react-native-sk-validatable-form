@@ -6,8 +6,9 @@ import React, {
 } from 'react-native';
 
 var {SKNavigator} = require('react-native-sk-navigator');
-var { WidgetMixin, Form, Widget, Message } = require('react-native-sk-validatable-form');
+var { Form, Widget, WidgetMixin, WidgetClassFactory, Validation, Message } = require('react-native-sk-validatable-form');
 
+// 如果你想显示中文的错误消息
 // Message.setLanguage('cn');
 
 var Home = React.createClass({

@@ -1,6 +1,6 @@
 {
   "name": "react-native-sk-validatable-form",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "component that wraps your form fields, it’s easy to get their value, validate their value.",
   "main": "index.js",
   "scripts": {

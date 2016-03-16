@@ -42,8 +42,9 @@ import React, {
 } from 'react-native';
 
 var {SKNavigator} = require('react-native-sk-navigator');
-var { WidgetMixin, Form, Widget, Message } = require('react-native-sk-validatable-form');
+var { Form, Widget, WidgetMixin, WidgetClassFactory, Validation, Message } = require('react-native-sk-validatable-form');
 
+// 如果你想显示中文的错误消息
 // Message.setLanguage('cn');
 
 var Home = React.createClass({
@@ -281,7 +282,7 @@ var TextInputWidget = WidgetClassFactory.create(TextInput, 'onChangeText', 'valu
   />
 ```
 
-### Validation rules string
+#### Validation rules string
 
 ```javascript
 validations='isRequired,isLength:[1,50]'
@@ -314,7 +315,14 @@ Message is a helper to offer error message for a rule.
 |**`setLanguage(language, messages = null)`**|Toggle language, only support cn(chinese) and en(english), you can add your implements by parameter `messages`. |*None*|
 |**`addMessage(rule, messageTemplate)`**|add a message template for a rule. |*None*|
 
-### Add a message templdate
+#### Toggle message language
+
+```
+// If you want to show chinese error message, 如果你想显示中文的错误消息
+Message.setLanguage('cn');
+```
+
+#### Add a message templdate
 
 ```javascript
 Message.addMessage('isEmail', '{TITLE} must be an email');
