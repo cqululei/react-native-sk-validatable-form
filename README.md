@@ -285,12 +285,16 @@ var TextInputWidget = WidgetClassFactory.create(TextInput, 'onChangeText', 'valu
 #### Validation rules string
 
 ```javascript
-validations='isRequired,isLength:[1,50]'
+validations='isRequired,isLength:[1,50],equalsPassword:#password'
 ```
 
 `validations` contains validation rules, which is defined in [validator](https://github.com/chriso/validator.js#validators) or you can define it yourself by [Validation.addValidator(rule, func)](#validations-methods).
 
-Multiple rules are split by `,`. One rule contains name and parameters which are split by `:`.
+Multiple rules are split by `,`. 
+
+One rule contains name and parameter which are split by `:`.
+
+Parameter can be a json(e.g. `[1,50]`) or a string(e.g. `a`) or a field(e.g. `#password`, it will pass the field's value when ru)
 
 ## Validation Class
 
@@ -303,6 +307,16 @@ Validation is a class that contains validation rules, and will check the rules.
 |**`static addValidator(rule, func)`**|Add a rule validator, which is used by [Validation rules string](#validation-rules-string) |*None*|
 |**`static parse(validations)`**|Parse [validation rules string](#validation-rules-string) (into a Validation object). |*None*|
 |**`check(value, values)`**|check the rules, called by [WidgetMixin.validate()](#widgets-methods) |*None*|
+
+#### Add a rule validator
+
+```javascript
+Validation.addValidator('equalsPassword', (value, password) => {
+	return value == password;
+})
+```
+
+Each rule has a validator function, which check the rule and return bool result.
 
 ## Message helper
 
@@ -326,7 +340,7 @@ Message.setLanguage('cn');
 
 ```javascript
 Message.addMessage('isEmail', '{TITLE} must be an email');
-Message.addMessage('equalsToPassword', '{TITLE} must be an {password}');
+Message.addMessage('equalsPassword', '{TITLE} must be an {password}');
 ```
 
 In `Message.addMessage(rule, messageTemplate)`, messageTemplate is a string template which contains parameter and will be translated when showing a error message.
