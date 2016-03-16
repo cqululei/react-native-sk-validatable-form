@@ -21,9 +21,9 @@ react-native-sk-validatable-form is a component that wraps your form fields, itâ
 There are some concepts you need to know
 
 1. **Form**: Component that represents a form, wraps ScrollView, contains input components, validates/gets their values
-2. **Widget**: Component that represents a field, wraps input components(e.g. TextInput/Switch) to accept field's value, validates/get its value, keeps validation error. You can create a Widget class by 2 ways: 1 inherits `WidgetMixin` 2 use `WidgetClassFactory`.
-3. **Validation**: Class that parse validation rules and checks the rules.
-4. **Message**: Helper that contains every rule's error message template, and translates it into real message.
+2. **Widget**: Component that represents a field, wraps input components(e.g. TextInput/Switch) to accept field's value, validates/get its value, keeps validation error. You can create a Widget class by 2 ways: 1 inherits `WidgetMixin` 2 use `WidgetClassFactory`. You can set validation rules through 'validations' property (e.g. `validations='isRequired,isLength:[1,50]'`)
+3. **Validation**: Class that parse validation rules and checks the rules. You can add rule validator through [Validation.addValidator(rule, func)](#add-a-rule-validator)
+4. **Message**: Helper that contains every rule's error message template, and translates it into real message. You can add a message templdate for a rule through [Message.addMessage(rule, messageTemplate)](#add-a-message-templdate-for-a-rule)
 
 ##How to use it
 
@@ -294,7 +294,7 @@ Multiple rules are split by `,`.
 
 One rule contains name and parameter which are split by `:`.
 
-Parameter can be a json(e.g. `[1,50]`) or a string(e.g. `a`) or a field(e.g. `#password`, it will pass the field's value when ru)
+Parameter can be a json(e.g. `[1,50]`) or a string(e.g. `abc123`) or a field(e.g. `#xxx`, it will pass 'xxx' field's value when check the rule)
 
 ## Validation Class
 
@@ -336,7 +336,7 @@ Message is a helper to offer error message for a rule.
 Message.setLanguage('cn');
 ```
 
-#### Add a message templdate
+#### Add a message templdate for a rule
 
 ```javascript
 Message.addMessage('isEmail', '{TITLE} must be an email');
